@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     # Can be removed after issue
     # https://github.com/robertcheramy/net-scp/issues/1 is fixed
     rubocop \
+    # Salva
+    tsocks \
     && rm -rf /var/lib/apt/lists/*
 
 # create bundle directory
