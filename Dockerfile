@@ -12,8 +12,6 @@ RUN apt-get update && apt-get install -y \
     # Can be removed after issue
     # https://github.com/robertcheramy/net-scp/issues/1 is fixed
     rubocop \
-    # Salva
-    tsocks \
     && rm -rf /var/lib/apt/lists/*
 
 # create bundle directory
@@ -99,6 +97,8 @@ RUN apt-get -yq update \
     # Gems needed by oxidized-web
     ruby-charlock-holmes ruby-haml ruby-htmlentities ruby-json \
     puma ruby-sinatra ruby-sinatra-contrib \
+    # Salva
+    tsocks \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
