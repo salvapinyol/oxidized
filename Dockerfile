@@ -87,6 +87,8 @@ RUN apt-get -qy update && \
 
 # install oxidized-web
 RUN gem install oxidized-web --no-document
+# SALVA: install oxidized script
+RUN gem install oxidized-script
 
 # clean up
 WORKDIR /
