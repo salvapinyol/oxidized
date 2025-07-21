@@ -81,6 +81,7 @@ RUN apt-get -qy update && \
     rake install && \
     # install oxidized-web
     gem install oxidized-web --no-document && \
+    gem install oxidized-script && \
     # remove the packages we do not need.
     apt-get -qy remove build-essential ruby-dev && \
     apt-get -qy autoremove && \
