@@ -93,9 +93,10 @@ RUN set -eux; \
     rm -rf /tmp/oxidized;
 
 # Salva. Instalamos oxs.
-RUN git clone https://github.com/ytti/oxidized-script.git /tmp; \ 
-    cd /tmp && gem build oxidized-script.gemspec; \ 
-    cd /tmp && gem install oxidized-script-0.7.0.gem;
+RUN mkdir /tmp/oxs; \
+    git clone https://github.com/ytti/oxidized-script.git /tmp/oxs; \ 
+    cd /tmp/oxs && gem build oxidized-script.gemspec; \ 
+    cd /tmp/oxs && gem install oxidized-script-0.7.0.gem;
 
 WORKDIR /
 
