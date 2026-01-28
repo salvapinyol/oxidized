@@ -90,7 +90,7 @@ RUN set -eux; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*; \
     find /var/lib/gems/*/cache -mindepth 1 -delete; \
-    rm -rf /tmp/oxidized; \
+    rm -rf /tmp/oxidized;
     # Salva. Instalamos oxs. PENDIENTE
     #git clone https://github.com/ytti/oxidized-script.git /tmp; \ 
     #cd /tmp && gem build oxidized-script.gemspec; \ 
