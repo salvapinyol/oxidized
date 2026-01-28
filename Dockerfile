@@ -3,7 +3,8 @@ FROM docker.io/debian:trixie-slim
 ##### Place "static" commands at the beginning to optimize image size and build speed
 
 # add non-privileged user
-RUN groupadd -g "30000" -r oxidized && \
+# SALVA --> modificamos el group id para que mapee con el de redes del host
+RUN groupadd -g "1008" -r oxidized && \
     useradd -u "30000" -r -m -d /home/oxidized -g oxidized oxidized && \
     chsh -s /bin/bash oxidized 
 
@@ -89,7 +90,11 @@ RUN set -eux; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*; \
     find /var/lib/gems/*/cache -mindepth 1 -delete; \
-    rm -rf /tmp/oxidized;
+    rm -rf /tmp/oxidized; \
+    # Salva. Instalamos oxs
+    git clone https://github.com/ytti/oxidized-script.git /tmp; \ 
+    cd /tmp && gem build oxidized-script.gemspec; \ 
+    cd /tmp && gem install oxidized-script-0.7.0.gem
 
 WORKDIR /
 
